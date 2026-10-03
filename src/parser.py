@@ -6,7 +6,9 @@ def parse_log(lines):
     status = "PASS"
     max_temp = None
     errors_found = []
+    lines_processed = 0
     for line_number, line in enumerate(lines, start=1):
+        lines_processed = line_number
         for tag in FAULT_TAGS:
             if tag in line:
                 status = "FAIL"
@@ -23,4 +25,5 @@ def parse_log(lines):
         "status": status,
         "max_temperature_c": max_temp,
         "errors_found": errors_found,
+        "lines_processed": lines_processed,
     }
