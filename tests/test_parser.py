@@ -25,3 +25,11 @@ def test_fail_log():
     assert result["errors_found"][0]["line"] == 6
     assert result["errors_found"][-1]["type"] == "CRITICAL"
     assert result["errors_found"][-1]["line"] == 11
+
+
+def test_empty_input():
+    result = parse_log([])
+    assert result["status"] == "PASS"
+    assert result["max_temperature_c"] is None
+    assert result["errors_found"] == []
+    assert result["lines_processed"] == 0
