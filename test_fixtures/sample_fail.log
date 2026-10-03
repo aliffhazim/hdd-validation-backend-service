@@ -1,0 +1,12 @@
+2026-10-01 02:00:01 [INFO] Test run started: DRIVE_SN=SYN-000123
+2026-10-01 02:00:05 [INFO] Firmware version FW-1.0.4
+2026-10-01 02:01:10 TEMP_CELSIUS: 38
+2026-10-01 02:05:22 [INFO] Sequential write test started
+2026-10-01 02:10:41 TEMP_CELSIUS: 47
+2026-10-01 02:14:07 [BAD_SECTOR] LBA 48213 unreadable
+2026-10-01 02:15:30 [INFO] Retrying read
+2026-10-01 02:16:02 [TIMEOUT] Controller did not respond within 30s
+2026-10-01 02:20:15 TEMP_CELSIUS: 61
+2026-10-01 02:22:44 [BAD_SECTOR] LBA 90417 unreadable
+2026-10-01 02:25:03 [CRITICAL] Firmware assertion failed in write path
+2026-10-01 02:25:04 [INFO] Test run aborted
