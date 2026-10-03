@@ -1,0 +1,8 @@
+2026-10-01 03:00:01 [INFO] Test run started: DRIVE_SN=SYN-000124
+2026-10-01 03:00:05 [INFO] Firmware version FW-1.0.4
+2026-10-01 03:01:10 TEMP_CELSIUS: 36
+2026-10-01 03:05:22 [INFO] Sequential write test started
+2026-10-01 03:10:41 TEMP_CELSIUS: 42
+2026-10-01 03:14:07 [INFO] Random read test passed
+2026-10-01 03:20:15 TEMP_CELSIUS: 44
+2026-10-01 03:25:03 [INFO] Test run completed
