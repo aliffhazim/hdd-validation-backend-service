@@ -1,6 +1,8 @@
-from fastapi import FastAPI, UploadFile
+from fastapi import FastAPI, HTTPException, UploadFile
 
 from src.parser import parse_log
+
+ALLOWED_EXTENSIONS = (".log", ".txt")
 
 app = FastAPI(title="HDD Validation Backend Service")
 
@@ -12,6 +14,12 @@ def health():
 
 @app.post("/api/v1/validate-log")
 def validate_log(file: UploadFile):
+    filename = (file.filename or "").lower()
+    if not filename.endswith(ALLOWED_EXTENSIONS):
+        raise HTTPException(
+            status_code=400,
+            detail="Only .log and .txt files are accepted",
+        )
     lines = (raw.decode("utf-8", errors="replace") for raw in file.file)
     result = parse_log(lines)
     return {
