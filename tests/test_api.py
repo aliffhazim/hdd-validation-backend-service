@@ -31,3 +31,12 @@ def test_upload_fail_log():
     assert data["analytics_data"]["max_temperature_c"] == 61
     assert len(data["analytics_data"]["errors_found"]) == 4
     assert data["metadata"]["lines_processed"] == 12
+
+
+def test_rejects_unsupported_extension():
+    response = client.post(
+        "/api/v1/validate-log",
+        files={"file": ("notes.exe", b"not a log")},
+    )
+    assert response.status_code == 400
+    assert "Only .log and .txt" in response.json()["detail"]
