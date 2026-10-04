@@ -100,3 +100,20 @@ python -m pytest
 ```
 
 6 tests cover the parser and the API. GitHub Actions runs them on every push.
+
+## Limitations
+
+- Logs are synthetic and the format is invented
+- The file type check looks only at the file name, so renaming a file to `.log` gets past it. This is a basic guard, not real security
+- No file size limit
+- Only three fault types are recognised
+- A malformed temperature line such as `TEMP_CELSIUS: abc` is not handled and makes the request fail with HTTP 500
+- Results are not stored anywhere
+
+## Next steps
+
+- Handle malformed temperature readings and add a test for it
+- Add a file size limit
+- Store results in SQLite and add a summary endpoint
+- Add Docker
+- Measure speed and memory on a large generated log before making any performance claims
